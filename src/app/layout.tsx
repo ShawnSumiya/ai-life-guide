@@ -39,15 +39,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <head>
-        <script
+      <body className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 antialiased">
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286325354162680"
           crossOrigin="anonymous"
-          dangerouslySetInnerHTML={{ __html: '' }}
+          strategy="afterInteractive"
         />
-      </head>
-      <body className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 antialiased">
         <div className="mx-auto max-w-7xl px-4 py-8">
           {/* Header */}
           <header className="mb-12">

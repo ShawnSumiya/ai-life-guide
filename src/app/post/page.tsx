@@ -15,15 +15,24 @@ export default function PostPage() {
     setLoading(true);
     setResult(null);
     try {
-      const res = await fetch('/api/generate', {
+      const res = await fetch('https://formspree.io/f/mrbordao', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, description, category }),
+        body: JSON.stringify({ 
+          _subject: `記事投稿: ${title}`,
+          title,
+          description,
+          category
+        }),
       });
-      const json = await res.json();
-      setResult(json?.message ?? 'OK');
+      
+      if (res.ok) {
+        setResult(`「${title}」の投稿を受け付けました。記事として公開されるまでしばらくお待ちください。`);
+      } else {
+        setResult('エラーが発生しました。もう一度お試しください。');
+      }
     } catch (err) {
-      setResult('エラーが発生しました');
+      setResult('エラーが発生しました。もう一度お試しください。');
     } finally {
       setLoading(false);
     }
