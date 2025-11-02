@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Link from 'next/link';
+import Script from 'next/script';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
 
@@ -38,14 +39,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <head>
-        <script
+      <body className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 antialiased">
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286325354162680"
           crossOrigin="anonymous"
+          strategy="afterInteractive"
         />
-      </head>
-      <body className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 antialiased">
         <div className="mx-auto max-w-7xl px-4 py-8">
           {/* Header */}
           <header className="mb-12">
