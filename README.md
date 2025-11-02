@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Life Guide
 
-## Getting Started
+🌸 美容と健康に関する役立つ情報をお届けするライフガイドサイト
 
-First, run the development server:
+## 🚀 デプロイ
+
+本サイトは [Netlify](https://ai-life-guide.netlify.app/) でホスティングされています。
+
+- **本番URL**: https://ai-life-guide.netlify.app/
+- **GitHubリポジトリ**: https://github.com/ShawnSumiya/ai-life-guide
+
+## 📋 セットアップ
+
+### 必要な環境
+
+- Node.js 20以上
+- npm または yarn
+
+### ローカル開発
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+開発サーバーは http://localhost:3003 で起動します。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 環境変数の設定
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Netlifyの管理画面で以下の環境変数を設定してください：
 
-## Learn More
+**必須環境変数:**
+- `NEXT_PUBLIC_SITE_URL`: サイトのURL（例: `https://ai-life-guide.netlify.app`）
 
-To learn more about Next.js, take a look at the following resources:
+**設定方法:**
+1. Netlifyのダッシュボードにアクセス
+2. サイト設定 → 環境変数 → 新しい変数を追加
+3. `NEXT_PUBLIC_SITE_URL` = `https://ai-life-guide.netlify.app` を設定
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+この環境変数は、SEO対策（Open Graph、Canonical URL等）で使用されます。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 プロジェクト構造
 
-## Deploy on Vercel
+```
+ai-life-guide/
+├── content/              # 記事コンテンツ（Markdown）
+│   └── articles/
+├── public/              # 静的ファイル
+│   └── images/         # 記事画像
+├── src/
+│   ├── app/            # Next.js App Router
+│   │   ├── articles/   # 記事ページ
+│   │   ├── api/        # APIルート
+│   │   └── post/       # 投稿ページ
+│   └── lib/            # ユーティリティ
+└── netlify.toml        # Netlify設定ファイル
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✨ 機能
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 📝 記事の閲覧（Markdown形式）
+- 🔍 SEO対策（メタタグ、OGP、Twitter Card）
+- 🎨 レスポンシブデザイン
+- 📱 モバイル対応
+
+## 🛠️ 技術スタック
+
+- **フレームワーク**: Next.js 16
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS
+- **コンテンツ管理**: Markdown（gray-matter）
+- **デプロイ**: Netlify
+
+## 📝 記事の追加方法
+
+1. `content/articles/` ディレクトリにMarkdownファイルを作成
+2. フロントマターにメタデータを記述：
+
+```markdown
+---
+title: "記事タイトル"
+description: "記事の説明"
+date: "2025-01-01"
+tags: ["タグ1", "タグ2"]
+author: "AI Life Guide 編集部"
+category: "カテゴリー名"
+---
+```
+
+3. GitHubにプッシュすると、Netlifyが自動的に再デプロイします
+
+## 🔗 リンク
+
+- [本番サイト](https://ai-life-guide.netlify.app/)
+- [GitHubリポジトリ](https://github.com/ShawnSumiya/ai-life-guide)
