@@ -119,7 +119,7 @@ export default async function ArticlePage({
             </span>
           )}
         </div>
-        <h1 className="text-4xl font-black text-gray-900 mb-4">{article.title}</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-4 leading-tight">{article.title}</h1>
         <p className="text-lg text-gray-600 mb-4">{article.description}</p>
         {article.author && (
           <p className="text-sm text-gray-500">
@@ -140,11 +140,35 @@ export default async function ArticlePage({
         )}
       </header>
 
+      {/* AdSense - Top Ad */}
+      <div className="mb-8 flex justify-center">
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-7286325354162680"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
+
       {/* Article Content */}
       <article 
         className="prose prose-lg max-w-none bg-white rounded-xl p-8 shadow-lg article-content"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
+
+      {/* AdSense - Bottom Ad */}
+      <div className="mt-8 flex justify-center">
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-7286325354162680"
+          data-ad-slot="0987654321"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
     </div>
   );
 }
