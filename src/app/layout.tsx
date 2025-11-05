@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Link from 'next/link';
-import Script from 'next/script';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
 
@@ -39,13 +38,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 antialiased">
-        <Script
+      <head>
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286325354162680"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
+      </head>
+      <body className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 antialiased">
         <div className="mx-auto max-w-7xl px-4 py-8">
           {/* Header */}
           <header className="mb-12">
@@ -61,7 +61,7 @@ export default function RootLayout({
                 </div>
               </Link>
               <Link href="/post">
-                <button className="px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-2">
+                <button className="px-3 py-1.5 md:px-6 md:py-3 text-sm md:text-base bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-1 md:gap-2">
                   ✍️ 投稿する
                 </button>
               </Link>
