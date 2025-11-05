@@ -19,19 +19,12 @@ const CONTENT_DIR = path.join(process.cwd(), 'content', 'articles');
 export function getAllArticles(): Article[] {
   if (!fs.existsSync(CONTENT_DIR)) return [];
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.md'));
-  const articles = files.map((file) => {
-    const article = getArticleBySlug(file.replace(/\.md$/, ''));
-    // ファイルの更新日時を取得
-    const fullPath = path.join(CONTENT_DIR, file);
-    const stats = fs.statSync(fullPath);
-    return {
-      ...article,
-      updatedAt: stats.mtime.getTime(), // ファイルの更新日時を追加
-    };
-  });
-  // ファイルの更新日時の新しい順にソート（更新順）
+  const articles = files.map((file) => getArticleBySlug(file.replace(/\.md$/, '')));
+  // 投稿日（date）の新しい順にソート（投稿順）
   return articles.sort((a, b) => {
-    return (b.updatedAt || 0) - (a.updatedAt || 0); // 新しい順（降順）
+    const dateA = a.date ? new Date(a.date).getTime() : 0;
+    const dateB = b.date ? new Date(b.date).getTime() : 0;
+    return dateB - dateA; // 新しい順（降順）
   });
 }
 
