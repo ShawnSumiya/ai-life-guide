@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description: '美容と健康に関する役立つ情報をお届けします。睡眠、食事、運動など、日常の習慣から内側の美しさを育てましょう。',
   metadataBase: new URL(siteUrl),
   alternates: { canonical: '/' },
+  verification: {
+    google: 'QcDgk-yZCe0Xg1BlG-g2mhX0xk22McrfX2dHAWiLYlk',
+  },
   openGraph: {
     title: 'AI Life Guide - 美容と健康のライフガイド',
     description: '美容と健康に関する役立つ情報をお届けします。睡眠、食事、運動など、日常の習慣から内側の美しさを育てましょう。',
